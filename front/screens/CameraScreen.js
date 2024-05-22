@@ -12,20 +12,20 @@ import * as FileSystem from 'expo-file-system';
 // or select an image from the phone gallery.
 const CameraScreen = () => {
   const [hasCameraPermission, setPermission] = useState(null);
-  const [cameraType, setCameraType] = useState(Camera.Constants.Type.back);
+  // const [cameraType, setCameraType] = useState(Camera.Constants.Type.back); // Tämä rivi aiheuttaa ongelmia
   const [orientation, setOrientation] = useState('PORTRAIT');
   const [subscription, setSubscription] = useState(null);
   const camera = useRef(null);
   const navigation = useNavigation();
   const isFocused = useIsFocused();
 
-  // The useEffect hook asks for camera permission when the component mounts.
+  // // The useEffect hook asks for camera permission when the component mounts.
   useEffect(() => {
     askCameraPermission();
   }, []);
 
-  // This useEffect hook subscribes to the accelerometer when the CameraScreen comes into focus
-  // and unsubscribes when it goes out of focus.
+  // // This useEffect hook subscribes to the accelerometer when the CameraScreen comes into focus
+  // // and unsubscribes when it goes out of focus.
   useEffect(() => {
     if (isFocused) {
       _subscribe();
@@ -34,8 +34,8 @@ const CameraScreen = () => {
     }
   }, [isFocused]);
 
-  // The _subscribe function sets up a listener on the accelerometer.
-  // This listener updates the orientation state variable based on the accelerometer data.
+  // // The _subscribe function sets up a listener on the accelerometer.
+  // // This listener updates the orientation state variable based on the accelerometer data.
   const _subscribe = useCallback(() => {
     // If a subscription already exists, unsubscribe before subscribing again.
     if (subscription) {
@@ -60,15 +60,15 @@ const CameraScreen = () => {
     );
   }, [subscription]);
 
-  // The _unsubscribe function removes the accelerometer listener when it is not needed anymore,
-  // which is typicaly when the CameraScreen goes out of focus.
+  // // The _unsubscribe function removes the accelerometer listener when it is not needed anymore,
+  // // which is typicaly when the CameraScreen goes out of focus.
   const _unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
   };
 
-  // The askCameraPermission function asks the user to grant permission to the expo camera.
-  // If the user does not grant permission, the hasCameraPermission state variable is set to false.
+  // // The askCameraPermission function asks the user to grant permission to the expo camera.
+  // // If the user does not grant permission, the hasCameraPermission state variable is set to false.
   const askCameraPermission = async () => {
     try {
       const { status } = await Camera.requestCameraPermissionsAsync();
@@ -78,8 +78,8 @@ const CameraScreen = () => {
     }
   };
 
-  // The takePicture function takes a picture with the camera and navigates to the PreviewScreen.
-  // The base64: true, line includes the base64 representation of the image in the photo object.
+  // // The takePicture function takes a picture with the camera and navigates to the PreviewScreen.
+  // // The base64: true, line includes the base64 representation of the image in the photo object.
   const takePicture = async () => {
     try {
       const photo = await camera.current.takePictureAsync({
@@ -105,8 +105,8 @@ const CameraScreen = () => {
     }
   };
 
-  // The openGallery function opens the gallery for the user to select an image and navigates to the PreviewScreen.
-  // The base64: true, line includes the base64 representation of the image in the result object.
+  // // The openGallery function opens the gallery for the user to select an image and navigates to the PreviewScreen.
+  // // The base64: true, line includes the base64 representation of the image in the result object.
   const openGallery = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
@@ -137,8 +137,8 @@ const CameraScreen = () => {
     }
   };
 
-  // The toggleCameraType function toggles between the front and back camera.
-  // It does this by checking the current camera type and setting the camera type to the opposite type.
+  // // The toggleCameraType function toggles between the front and back camera.
+  // // It does this by checking the current camera type and setting the camera type to the opposite type.
   const toggleCameraType = () => {
     setCameraType(
       cameraType === Camera.Constants.Type.back
@@ -149,7 +149,7 @@ const CameraScreen = () => {
 
   return (
     <View style={styles.container}>
-      {hasCameraPermission ? (
+      {/* {hasCameraPermission ? (
         <View style={{ flex: 1, maxHeight: '90%' }}>
           {isFocused && (
             <Camera
@@ -166,7 +166,7 @@ const CameraScreen = () => {
         </View>
       ) : (
         <Text>No access to camera</Text>
-      )}
+      )} */}
       <View
         style={{
           flexDirection: 'row',
