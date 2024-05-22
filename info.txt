@@ -1,0 +1,5 @@
+Tavoitteena esim. seuraavanlainen menettely
+1. Käyttäjältä kysytään huuonekalusta ainakin kuva, huonekalutyyppi, merkki ja malli (+ mahdolliset muut ominaisuudet/voi jättää tyhjäksi jolloin ne kysytään kuvan pohjalta llm)
+2. Tietojen perusteella tehdään web scraping tori.fi > jos löytyy tuloksia, lasketaan löytyvistä tuotteista keskihinta
+3. Tiedot ja eri ominaisuuksien vaikutus hintaan ja mahdollinen scrapettu pohjahinta lähetetään llm ja pyydetään low-hinta, medium-hinta, high hinta ja muita tietoja esim.
+arvio myyntiajasta
