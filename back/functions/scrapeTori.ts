@@ -2,7 +2,10 @@ import axios from 'axios';
 import cheerio, { load } from 'cheerio';
 
 async function fetchPage(url: string) {
-  const { data } = await axios.get(url);
+  const { data } = await axios.get(url, {
+    headers: {
+    'User-Agent': 'FurnitureResearchBot/1.0'
+}});
   return load(data);
 }
 
