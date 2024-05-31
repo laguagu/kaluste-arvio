@@ -14,7 +14,7 @@ async function scrapePrices(url: string): Promise<number[]> {
   let nextPageExists = true;
   let pageNumber = 1;
 
-  while (nextPageExists) {
+  while (nextPageExists && pageNumber < 11) { //page number limit so we dont scrape close to 10k products in some cases
     const pageUrl = pageNumber === 1 ? url : `${url}&page=${pageNumber}`;
     const $ = await fetchPage(pageUrl);
 
