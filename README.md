@@ -1,2 +1,2 @@
-# arvolaskuri
+# KalusteArvio
 Älyä-hanke projekti - Huonekalujen arvomääritykseen
