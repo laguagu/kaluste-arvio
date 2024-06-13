@@ -1,0 +1,7 @@
+13.6 Kesän speksejä miitin muistiinpanot
+
+- 1. Kalusteen kuvan perusteella tehdään sekä vision ai arvio, että Google lens haku, jotta löydettäisiin oikea merkki ja malli
+- 2. Seuraavaksi pyydetään tarkistamaan löydetyt tiedot (muokattava lomake)
+- 3. Sitten käyttäjältä kysytään mitä hän haluaa tehdä kalusteelle: Myydä, Lahjoittaa, Kierrättää, Kunnostaa
+- 4. Edelliskohdan valinnoista tulee välilehtivalinnat yläpalkiksi, jokaisessa välilehdessä on omat dialogivaihtoehdot,
+	esim. Myymisvälilehdellä ai voi antaa arvioitua myyntihintaa, mahdollisia kauppapaikkoja ja generoi tuotekuvauksia
